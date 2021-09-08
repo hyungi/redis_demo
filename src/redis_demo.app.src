@@ -1,0 +1,18 @@
+{application, redis_demo,
+ [{description, "Redis Demo App"},
+  {vsn, "0.1.0"},
+  {registered, [
+  ]
+  },
+  {mod, {redis_demo_app, []}},
+  {applications,
+   [kernel,
+    kernel,
+    stdlib,
+    ssl
+   ]},
+  {env,[]},
+  {modules, []},
+  {licenses, ["Apache 2.0"]},
+  {links, []}
+ ]}.
