@@ -22,3 +22,14 @@ lookup(Key, List, Default) ->
     false -> Default;
     {_, Value} -> Value
   end.
+
+%% Taken from rtb-gateway
+-define(GET_ENV(Key), application:get_env(?APP, Key)).
+-define(GET_ENV(Key, Default), application:get_env(?APP, Key, Default)).
+
+-define(DEFAULT_IP, "127.0.0.1").
+-define(DEFAULT_PORT, 30001).
+-define(DEFAULT_POOL_SIZE, 5).
+-define(DEFAULT_POOL_OVERFLOW, 0).
+
+-define(APP, redis_demo).

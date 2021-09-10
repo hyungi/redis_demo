@@ -7,7 +7,6 @@
   {mod, {redis_demo_app, []}},
   {applications,
    [kernel,
-    kernel,
     stdlib,
     ssl
    ]},

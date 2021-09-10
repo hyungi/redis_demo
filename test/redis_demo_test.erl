@@ -12,7 +12,7 @@
 -include_lib("eunit/include/eunit.hrl").
 -include("eredis_cluster.hrl").
 
--define(Setup, fun() -> redis_demo:start() end).
+-define(Setup, fun() -> redis_demo_sup:start_link() end).
 
 basic_test_() ->
     {inorder,

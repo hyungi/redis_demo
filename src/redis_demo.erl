@@ -14,7 +14,7 @@
 -include("redis_demo_utils.hrl").
 
 start() ->
-    start([{"127.0.0.1", 30001}], [{pool_size, 10}, {pool_max_overflow, 0}, {password, ""}]).
+    start([{"127.0.0.1", 30001}], [{pool_size, 5}, {pool_max_overflow, 0}, {password, ""}]).
 
 -spec start(InitServers, Options) -> ok
     when InitServers :: [{Address :: string(),
@@ -25,7 +25,7 @@ start(InitServers, Options) ->
 
     eredis_cluster:start(),
     application:set_env(eredis_cluster, pool_size, lookup(pool_size, Options, 5)),
-    application:set_env(eredis_cluster, pool_max_overflow, lookup(pool_max_overflow, Options, 5)),
+    application:set_env(eredis_cluster, pool_max_overflow, lookup(pool_max_overflow, Options, 0)),
     eredis_cluster:connect(InitServers).
 
 stop(_State) ->
